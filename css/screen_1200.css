@@ -1,0 +1,41 @@
+/*
+
+    NACONF 2012
+    
+    FOR SCREENS LARGER THAN 1200
+    
+*/
+
+
+
+/* @group BODY
+---------------------------------------------------------------------- */
+
+body {
+    font-size:112.5%;
+    background:#000;
+}
+
+/* @end */
+
+
+
+/* @group LAYOUT
+---------------------------------------------------------------------- */
+
+div#page {
+    max-width:1400px;
+    margin-left:auto;
+    margin-right:auto;
+    background:#fff;
+}
+
+/* HEADER ---------- */
+    #branding {
+        height:220px;
+        width:575px;
+        background:url(../img/logo.png) no-repeat 0 0;
+    }
+
+/* @end */
+
