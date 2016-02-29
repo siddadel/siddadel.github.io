@@ -1,11 +1,3 @@
-/*
-
-    NACONF 2012
-    
-    FOR SCREENS LARGER THAN 768
-    
-*/
-
 
 
 /* @group BODY
@@ -149,6 +141,7 @@ ul#navigation_pri {
     text-transform:uppercase;
     position:relative;
     z-index:2;
+    list-style: none;
 }
 ul#navigation_pri li {
     margin:0 1.5957% 0 0;
@@ -170,9 +163,7 @@ ul#navigation_pri li a:focus {
     text-decoration:underline;
 }
 
-ul#navigation_pri li.cur {
-    background:url(../images/site/navigation_cur.png) no-repeat center bottom;
-}
+
 ul#navigation_pri li.cur a {
    color:#bd3632;
    background:none;
@@ -202,9 +193,6 @@ ul#navigation_pri li.register a:focus {
     text-decoration:none;
     background:#000;
 }
-ul#navigation_pri li.register.cur {
-    background-image:url(../images/site/navigation_register_cur.png);
-}
 ul#navigation_pri li.register.cur a:hover,
 ul#navigation_pri li.register.cur a:focus {
     background:#bd3632;
@@ -230,31 +218,6 @@ div#page_title {
     margin-bottom:6%;
     margin-bottom:3.9216%;
 }
-.home div#page_title {
-    background-image:url(../images/site/pagetitle_home.jpg);
-}
-.conference div#page_title {
-    background-image:url(../images/site/pagetitle_conference.jpg);
-}
-.workshops div#page_title {
-    background-image:url(../images/site/pagetitle_workshops.jpg);
-}
-.extras div#page_title {
-    background-image:url(../images/site/pagetitle_extras.jpg);
-}
-.location div#page_title {
-    background-image:url(../images/site/pagetitle_location.jpg);
-}
-.sponsors div#page_title {
-    background-image:url(../images/site/pagetitle_sponsors.jpg);
-}
-.register div#page_title {
-    background-image:url(../images/site/pagetitle_register.jpg);
-}
-.docs div#page_title {
-    background-image:url(../images/site/pagetitle_docs.jpg);
-}
-
 /* @end */
 
 

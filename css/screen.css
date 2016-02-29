@@ -1,17 +1,4 @@
-/*
 
-    NACONF 2012
-    
-    BASE STYLES
-    
-    COLOURS -----------
-    
-        red             #bd3632
-        15% red         #f8ebea
-    
-    -------------------
-    
-*/
 
 
 
@@ -338,6 +325,7 @@ div#event_info p {
 
 ul#navigation_pri {
     margin-bottom:3em;
+    list-style: none
 }
 ul#navigation_pri li {
     margin:0;
@@ -383,12 +371,7 @@ div#footer a:focus {
     color:#fff;
 }
 
-div#footer p.twitter a.follow {
-    color:#fff;
-    display:block;
-    background:url(../images/site/icons/twitter.png) no-repeat 0 center;
-    padding-left:1.8em;
-}
+
 div#footer p.twitter span {
     font-size:0.86667em;
     color:#de9a98;
