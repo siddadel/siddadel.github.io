@@ -33,7 +33,7 @@
 
 <script type="text/javascript">
 
-	var map = L.map('map').setView([25.7,84.0], 7);
+	var map = L.map('map').setView([25.8,81.0], 7);
 
 	// control that shows state info on hover
 	var info = L.control();
@@ -46,7 +46,7 @@
 
 	info.update = function (props) {
 
-		this._div.innerHTML = '<h4>Present Leads from ECI</h4>' +  (props ?
+		this._div.innerHTML = '<h4>UP 2017 Assembly results</h4>' +  (props ?
 			'<br />Constituency:  '+props.AC_NAME+'<br />District:   '+props.DIST_NAME+'<br />No. of Votes:  '+props.max+'<br />Winner:  '+props.winner+'<br />Party:  '+props.WinningParty+
 			'<br /><table><tr><td>'+
 			props.candidates[0].party+'</td><td>'+props.candidates[0].votes+'</td></tr><tr><td>'+

@@ -33,7 +33,7 @@
 
 <script type="text/javascript">
 
-	var map = L.map('map').setView([29.0,77.0], 7);
+	var map = L.map('map').setView([25.8,81.0], 7);
 
 	// control that shows state info on hover
 	var info = L.control();
@@ -45,7 +45,7 @@
 	};
 
 	info.update = function (props) {
-		this._div.innerHTML = '<h4>UP 2012 Assembly</h4>' +  (props ?
+		this._div.innerHTML = '<h4>UP 2012 Assembly Results</h4>' +  (props ?
 			'<b>Goa</b><br />Constituency:  '+props.AC_NAME+'<br />District:   '+props.DIST_NAME+'<br />No. of Votes:  '+props.max+'<br />Winner:  '+props.winner+'<br />Winner:  '+props.WinningParty+'</sup>'
 			: 'Hover over a state');
 	};

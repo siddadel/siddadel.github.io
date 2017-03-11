@@ -33,7 +33,7 @@
 
 <script type="text/javascript">
 
-	var map = L.map('map').setView([25.7,84.0], 7);
+	var map = L.map('map').setView([25.7,84.0], 6);
 
 	// control that shows state info on hover
 	var info = L.control();
@@ -46,7 +46,7 @@
 
 	info.update = function (props) {
 
-		this._div.innerHTML = '<h4>Election Results India</h4>' +  (props ?
+		this._div.innerHTML = '<h4>Relevant Areas for 2017 Assembly Election</h4>' +  (props ?
 			'<br />Constituency:  '+props.AC_NAME+'<br />District:   '+props.DIST_NAME+'<br />No. of Votes:  '+props.max+'<br />Winner:  '+props.winner+'<br />Party:  '+props.WinningParty+
 			'<br /><table><tr><td>'+
 			props.candidates[0].party+'</td><td>'+props.candidates[0].votes+'</td></tr><tr><td>'+
@@ -66,6 +66,9 @@
 	// get color depending on population density value
 	function getColor(d) {
 		return    d.WinningParty == 'Bharatiya Janata Party' ? '#FFA500' :
+	 d.WinningParty == 'Samajwadi Party' ? '#00FF00' :
+	 d.WinningParty == 'Bahujan Samaj Party' ? '#0000FF' :
+	 d.WinningParty ==  'Rashtriya Lok Dal' ? '#FF0000':
      d.WinningParty == 'Indian Union Muslim League' ? '#00FF00' :
      d.WinningParty == 'Kerala Congress (Jacob)' ? '#BD0026' :
      d.WinningParty == 'Telangana Rashtra Samithi' ? '#BD0026' :
@@ -79,7 +82,7 @@
      d.WinningParty == 'All India Trinamool Congress' ? '#008D3C' :
      d.WinningParty == 'Congress (Secular)' ? '#BD0026' :
      d.WinningParty == 'Janata Dal (Secular)' ? '#008D3C' :
-     d.WinningParty == 'Indian National Congress' ? '#87CEEB' :
+     d.WinningParty == 'Indian National Congress' ? '#00FF00' :
      d.WinningParty == 'Communist Party of India (Marxist)' ? '#FF0000' :
      d.WinningParty == 'All India Forward Bloc' ? '#008D3C' :
      d.WinningParty == 'Gorkha Janmukti Morcha' ? '#BD0026' :
@@ -90,6 +93,12 @@
      d.WinningParty == 'Communist Party of India' ? '#FF0000' :
      d.WinningParty == 'All India United Democratic Front' ? '#BD0026' :
      d.WinningParty == 'National Secular Conference' ? '#BD0026' :
+     d.WinningParty == 'Shiromani Akali Dal' ? '#FFA500':
+     d.WinningParty == 'Aam Aadmi Party' ? '#ffff99':
+
+     d.WinningParty == 'Suheldev Bhartiya Samaj Party' ? '#BD0026':
+     d.WinningParty == 'Apna Dal (Soneylal)' ? '#008D3C':
+     d.WinningParty == 'Grand' ? '#000000':
 
 '#a6a6a6';
 
