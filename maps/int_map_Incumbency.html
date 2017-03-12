@@ -3,7 +3,7 @@
 <html>
 <head>
 	
-	<title>2017 What if</title>
+	<title>Assembly 2017</title>
 
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,13 +26,10 @@
 .legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }</style>
 </head>
 <body>
-<h1>What if BSP, INC and SP had gone to polls as a 'Grand Alliance'?</h1>
-<p>
-Let's add the votes (BSP+INC+SP), in every constituency, to see how this alliance would have fared against BJP. </p><br />
 
 <div id='map'></div>
 
-<script type="text/javascript" src="GrandAlliance.js"></script>
+<script type="text/javascript" src="Incumbency.js"></script>
 
 <script type="text/javascript">
 
@@ -48,9 +45,11 @@ Let's add the votes (BSP+INC+SP), in every constituency, to see how this allianc
 	};
 
 	info.update = function (props) {
-
-		this._div.innerHTML = '<h4>What if BSP, INC and SP<br />had gone to poll in alliance?</h4>' +  (props ?
-			'<br />Constituency:  '+props.AC_NAME+'<br />District:   '+props.DIST_NAME+'<br />No. of Votes:  '+props.max+'<br />Winner:  '+props.winner+'<br />Party:  '+props.WinningParty+'<br /><table><tr><td>'+
+		this._div.innerHTML = '<h4>Incumbency 2017 vs. 2012</h4>' +  (props ?
+			'<br />Constituency:  '+props.AC_NAME+'<br />District:   '+props.DIST_NAME+'<br />No. of Votes:  '+props.max+'<br />Winner:  '+props.winner+'<br />Winning Party 2017:  '+props.WinningParty+
+			'<br />Winning Party 2012: '+props.Winner2012+
+			'<br />Winner 2012: '+props.Name2012+
+			'<br />Winning Votes 2012: '+props.Votes2012+'<br />2017 Votes:<br /><table><tr><td>'+
 			props.candidates[0].party+'</td><td>'+props.candidates[0].votes+'</td></tr><tr><td>'+
 			props.candidates[1].party+'</td><td>'+props.candidates[1].votes+'</td></tr><tr><td>'+
 			props.candidates[2].party+'</td><td>'+props.candidates[2].votes+'</td></tr><tr><td>'+
@@ -58,8 +57,6 @@ Let's add the votes (BSP+INC+SP), in every constituency, to see how this allianc
 
 			'</table></sup>'
 			: 'Hover over a state');
-		
-		
 	};
 
 	info.addTo(map);
@@ -67,44 +64,22 @@ Let's add the votes (BSP+INC+SP), in every constituency, to see how this allianc
 
 	// get color depending on population density value
 	function getColor(d) {
-		return    d.WinningParty == 'Bharatiya Janata Party' ? '#FFA500' :
-	 d.WinningParty == 'Samajwadi Party' ? '#00FF00' :
-	 d.WinningParty == 'Bahujan Samaj Party' ? '#0000FF' :
-	 d.WinningParty ==  'Rashtriya Lok Dal' ? '#FF0000':
-     d.WinningParty == 'Indian Union Muslim League' ? '#00FF00' :
-     d.WinningParty == 'Kerala Congress (Jacob)' ? '#BD0026' :
-     d.WinningParty == 'Telangana Rashtra Samithi' ? '#BD0026' :
-     d.WinningParty == 'Kerala Congress (M)' ? '#BD0026' :
-     d.WinningParty == 'Asom Gana Parishad' ? '#BD0026' :
-     d.WinningParty == 'Kerala Congress (B)' ? '#BD0026' :
-     d.WinningParty == 'All India N.R. Congress' ? '#BD0026' :
-     d.WinningParty == 'Communist Marxist Party Kerala State Committee' ? '#FF0000' :
-     d.WinningParty == 'Bodoland Peoples Front' ? '#BD0026' :
-     d.WinningParty == 'All India Anna Dravida Munnetra Kazhagam' ? '#008D3C' :
-     d.WinningParty == 'All India Trinamool Congress' ? '#008D3C' :
-     d.WinningParty == 'Congress (Secular)' ? '#BD0026' :
-     d.WinningParty == 'Janata Dal (Secular)' ? '#008D3C' :
-     d.WinningParty == 'Indian National Congress' ? '#00FF00' :
-     d.WinningParty == 'Communist Party of India (Marxist)' ? '#FF0000' :
-     d.WinningParty == 'All India Forward Bloc' ? '#008D3C' :
-     d.WinningParty == 'Gorkha Janmukti Morcha' ? '#BD0026' :
-     d.WinningParty == 'Revolutionary Socialist Party' ? '#FF0000' :
-     d.WinningParty == 'Independent' ? '#BD0026' :
-     d.WinningParty == 'Dravida Munnetra Kazhagam' ? '#BD0026' :
-     d.WinningParty == 'Nationalist Congress Party' ? '#BD0026' :
-     d.WinningParty == 'Communist Party of India' ? '#FF0000' :
-     d.WinningParty == 'All India United Democratic Front' ? '#BD0026' :
-     d.WinningParty == 'National Secular Conference' ? '#BD0026' :
-     d.WinningParty == 'Shiromani Akali Dal' ? '#FFA500':
-     d.WinningParty == 'Aam Aadmi Party' ? '#ffff99':
+		if(d.WinningParty!=null&&d.WinningParty==d.Winner2012)
+		return    getC(d);
+        else return '#a6a6a6';
+	}
 
-     d.WinningParty == 'Suheldev Bhartiya Samaj Party' ? '#BD0026':
-     d.WinningParty == 'Apna Dal (Soneylal)' ? '#008D3C':
-     d.WinningParty == 'Grand' ? '#000099':
+	function getC(d){
+		return    d.WinningParty == 'BJP' ? '#FFA500' :
+     d.WinningParty == 'SP' ? '#00FF00' :
+     d.WinningParty == 'INC' ? '#ccffcc' :
+     d.WinningParty == 'BSP' ? '#0000FF' :
+     d.WinningParty == 'RLD' ? '#FF0000' :
 
 '#a6a6a6';
-
 	}
+
+
 
 	function style(feature) {
 		return {
@@ -161,7 +136,7 @@ Let's add the votes (BSP+INC+SP), in every constituency, to see how this allianc
 	map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
 
 
-	/*var legend = L.control({position: 'bottomright'});
+/*	var legend = L.control({position: 'bottomright'});
 
 	legend.onAdd = function (map) {
 
@@ -181,9 +156,9 @@ Let's add the votes (BSP+INC+SP), in every constituency, to see how this allianc
 
 		div.innerHTML = labels.join('<br>');
 		return div;
-	};*/
+	};
 
-	legend.addTo(map);
+	legend.addTo(map);*/
 
 </script>
 
