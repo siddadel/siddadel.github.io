@@ -32,13 +32,21 @@
 Enter a number here that defines your idea of a small margin.<br/>
 All constituencies where a candidate won by less than this number will be highlighted.<br/>
   <input id="marg" type="number" value=5000>
+<select id="margComp">
+  <option value="Yes">Less than margin?</option>
+  <option value="No">Greater than margin?</option>
+</select>
+<br />
+State Name: <input id="margState" type="text" value="UTTAR PRADESH">
+<br/>
+Winning Party: <input id="margParty" type="text" value="Bharatiya Janata Party">
+<br/>
   <input type="submit" onclick="myFunction();">
 <br/>Number of constituencies where winner won by less than the entered margin:
 <div id="margConst"></div><br />
- <input id="margState" type="text" value="UTTAR PRADESH">
-<br/>
 <script>
 function myFunction() {
+	marginalConst = 0
 	map.remove();
 	map = L.map('map').setView([25.7,84.0], 6);
    	geojson = L.geoJson(statesData, {
@@ -47,6 +55,7 @@ function myFunction() {
 	}).addTo(map);
 	info.addTo(map);
 	document.getElementById("margConst").innerHTML=marginalConst;
+	alert(document.getElementById("margParty"));
 }
 </script>
 
@@ -90,8 +99,23 @@ function myFunction() {
 	// get color depending on population density value
 	function getColor(d) {
 
-	if(d.ST_NAME==document.getElementById("margState").value.toUpperCase()
-		&&d.Margin<document.getElementById("marg").value){
+	if(
+		(document.getElementById("margState").value==""||
+		d.ST_NAME==document.getElementById("margState").value.toUpperCase())
+		&&
+		(d.WinningParty==document.getElementById("margParty").value||
+		 document.getElementById("margParty").value==""	)
+		&&
+		(
+			(d.Margin<document.getElementById("marg").value
+			&&document.getElementById("margComp").value=='Yes')
+
+		||
+
+			(d.Margin>document.getElementById("marg").value
+			&&document.getElementById("margComp").value=='No')
+		)) {
+
 		marginalConst++;
 		return   d.WinningParty == 'Bharatiya Janata Party' ? '#FFA500' :
 		 d.WinningParty == 'Samajwadi Party' ? '#00FF00' :
@@ -123,6 +147,7 @@ function myFunction() {
 	     d.WinningParty == 'National Secular Conference' ? '#BD0026' :
 	     d.WinningParty == 'Shiromani Akali Dal' ? '#FFA500':
 	     d.WinningParty == 'Aam Aadmi Party' ? '#ffff99':
+	     d.WinningParty == 'Apna Dal (Soneylal)' ? '#FFA500':
 
 		'#a6a6a6';
 		}
@@ -207,7 +232,6 @@ function myFunction() {
 	};*/
 
 	legend.addTo(map);
-
 	document.getElementById("margConst").innerHTML=marginalConst;
 </script>
 
