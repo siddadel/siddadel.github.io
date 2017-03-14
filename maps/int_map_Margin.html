@@ -36,6 +36,10 @@ All constituencies where a candidate won by less than this number will be highli
   <option value="Yes">Less than margin?</option>
   <option value="No">Greater than margin?</option>
 </select>
+<select id="showOnlySC">
+  <option value="No">Show All?</option>
+  <option value="Yes">Show Only Reserved?</option>
+</select>
 <br />
 State Name: <input id="margState" type="text" value="UTTAR PRADESH">
 <br/>
@@ -86,6 +90,7 @@ function myFunction() {
 			props.candidates[3].party+'</td><td>'+props.candidates[3].votes+'</td></tr>'+ 
 
 			'</table><br />Margin:  '+props.Margin+
+			'<br />Is SC?:  '+props.IsSC+
 			'<br /></sup>'
 			: 'Hover over a state');
 		
@@ -98,7 +103,12 @@ function myFunction() {
 	// get color depending on population density value
 	function getColor(d) {
 
-	if(
+	if((document.getElementById("showOnlySC").value=="Yes"&&
+		d.IsSC=="No"
+		)){
+		return;
+	}
+	if( 
 		(document.getElementById("margState").value==""||
 		d.ST_NAME==document.getElementById("margState").value.toUpperCase())
 		&&
