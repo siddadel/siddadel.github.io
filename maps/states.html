@@ -46,15 +46,8 @@
 
 	info.update = function (props) {
 
-		this._div.innerHTML = '<h4>UP 2017 Assembly results</h4>' +  (props ?
-			'<br />Constituency:  '+props.AC_NAME+'<br />District:   '+props.DIST_NAME+'<br />No. of Votes:  '+props.max+'<br />Winner:  '+props.winner+'<br />Party:  '+props.WinningParty+'<br />EVM Order of BJP:  '+props.EVMOrder+
-			'<br /><table><tr><td>'+
-			props.candidates[0].party+'</td><td>'+props.candidates[0].votes+'</td></tr><tr><td>'+
-			props.candidates[1].party+'</td><td>'+props.candidates[1].votes+'</td></tr><tr><td>'+
-			props.candidates[2].party+'</td><td>'+props.candidates[2].votes+'</td></tr><tr><td>'+
-			props.candidates[3].party+'</td><td>'+props.candidates[3].votes+'</td></tr>'+ 
-
-			'</table></sup>'
+		this._div.innerHTML = '<h4>States</h4>' +  (props ?
+			'<br />State:  '+props.ST_NM+'</sup>'
 			: 'Hover over a state');
 		
 		
