@@ -30,6 +30,8 @@
 <p>
 Let's add the votes (BSP+INC+SP), in every constituency, to see how this alliance would have fared against BJP. </p><br />
 
+<div id='totalcount'></div>
+
 <div id='map'></div>
 
 <script type="text/javascript" src="GrandAlliance.js"></script>
@@ -64,9 +66,13 @@ Let's add the votes (BSP+INC+SP), in every constituency, to see how this allianc
 
 	info.addTo(map);
 
+	var totalCount = 0;
 
 	// get color depending on population density value
 	function getColor(d) {
+		if(d.WinningParty=='Grand'){
+			totalCount++;
+		}
 		return    d.WinningParty == 'Bharatiya Janata Party' ? '#FFA500' :
 	 d.WinningParty == 'Samajwadi Party' ? '#00FF00' :
 	 d.WinningParty == 'Bahujan Samaj Party' ? '#0000FF' :
@@ -184,6 +190,8 @@ Let's add the votes (BSP+INC+SP), in every constituency, to see how this allianc
 	};*/
 
 	legend.addTo(map);
+
+	document.getElementById("totalcount").innerHTML=totalCount;
 
 </script>
 
