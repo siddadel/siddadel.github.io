@@ -34,7 +34,7 @@
 <script type="text/javascript">
 
 	var map = L.map('map',  { zoomControl:false }).setView([22.8,79.0], 4);
-
+	
 	// control that shows state info on hover
 	var info = L.control();
 
@@ -102,11 +102,11 @@ else return '#a6a6a6';
 
 	function style(feature) {
 		return {
-			weight: 2,
+			weight: 1,
 			opacity: 1,
 			color: 'white',
-			dashArray: '3',
-			fillOpacity: 0.7,
+			dashArray: '1',
+			fillOpacity: 0.4,
 			fillColor: getColor(feature.properties)
 		};
 	}
