@@ -48,19 +48,7 @@ Winning Party: <input id="margParty" type="text" value="Bharatiya Janata Party">
   <input type="submit" onclick="myFunction();">
 <br/>Number of constituencies where winner won by less than the entered margin:
 <div id="margConst"></div><br /-->
-<script>
-function myFunction() {
-	marginalConst = 0
-	map.remove();
-	map = L.map('map').setView([25.7,84.0], 6);
-   	geojson = L.geoJson(statesData, {
-		style: style,
-		onEachFeature: onEachFeature
-	}).addTo(map);
-	info.addTo(map);
-	document.getElementById("margConst").innerHTML=marginalConst;
-}
-</script>
+
 
 <div id='map'></div>
 
@@ -77,6 +65,18 @@ function myFunction() {
 			id: 'mapbox.light'
 		}).addTo(map);
 
+	// var locations = [
+	// 	["LOCATION_1",23.3441, 85.3096],
+	// 	];
+	// for (var i = 0; i < locations.length; i++) {
+	// 		marker = new L.marker([locations[i][1],locations[i][2]])
+	// 			.bindPopup(locations[i][0])
+	// 			.addTo(map);
+	// 	}
+	// var marker = new L.marker([23.3441, 85.3096], { opacity: 0.01 }); //opacity may be set to zero
+	// marker.bindTooltip("My Label", {permanent: true, className: "my-label", offset: [0, 0] });
+	// marker.addTo(map);
+
 	// control that shows state info on hover
 	var info = L.control();
 
@@ -88,32 +88,33 @@ function myFunction() {
 
 	info.update = function (props) {
 
-		this._div.innerHTML = '<h4>No. of Dry Latrines</h4>' +  (props ?
-			'<br />District:  '+props.DISTRICT+'<br />No. of Dry Latrines:   '+props.latrines+'<br /></sup>'
-			: 'Hover over a district');
+		this._div.innerHTML = '<h4>India Elections results with Margins</h4>' +  (props ?
+			'<br />State:   '+props.DISTRICT+'<br />No. of Votes:  '+props.max+'<br /></sup>'
+			: 'Hover over a state');
 		
 		
 	};
 
 	info.addTo(map);
 
-	var marginalConst = 0;
-	// get color depending on population density value
 	function getColor(d) {
 		
-		return '#ffffff';
+		if(d.DISTRICT=='Surguja'){
+			return 'rgb(9, 41, 100)';
+		}
+		return 'rgb(130,160,210)';
 		
 
 	}
 
 	function style(feature) {
 		return {
-			weight: 4,
+			weight: 2,
 			opacity: 1,
 			color: 'black',
-			dashArray: '3',
-			fillOpacity: 0.0,
-			// fillColor: getColor(feature.properties)
+			dashArray: '0.1',
+			fillOpacity: 1.0,
+			fillColor: getColor(feature.properties)
 		};
 	}
 
@@ -124,7 +125,7 @@ function myFunction() {
 			weight: 5,
 			color: '#666',
 			dashArray: '',
-			fillOpacity: 0.7
+			fillOpacity: 1.0
 		});
 
 		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -158,33 +159,8 @@ function myFunction() {
 		onEachFeature: onEachFeature
 	}).addTo(map);
 
-	map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
-
-
-	var legend = L.control({position: 'bottomright'});
-
-	legend.onAdd = function (map) {
-
-		var div = L.DomUtil.create('div', 'info legend'),
-			grades = [0, 1000, 5000, 10000],
-			labels = [],
-			from, to;
-
-		for (var i = 0; i < grades.length; i++) {
-			from = grades[i];
-			to = grades[i + 1];
-
-			labels.push(
-				'<i style="background:' + getColor(from + 1) + '"></i> ' +
-				from + (to ? '&ndash;' + to : '+'));
-		}
-
-		div.innerHTML = labels.join('<br>');
-		return div;
-	};
-
 	legend.addTo(map);
-	document.getElementById("margConst").innerHTML=marginalConst;
+
 </script>
 
 </body>
