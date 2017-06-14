@@ -93,7 +93,10 @@ function myFunction() {
 	var marginalConst = 0;
 	// get color depending on population density value
 	function getColor(d) {
-		if(d.articles>0.0){
+		if(d.articles>0.0 && d.faces>0.0){
+			return '#000080';
+		}
+		else if(d.articles>0.0){
 			return '#FF0000';
 		}
 		else if(d.faces>0.0){
