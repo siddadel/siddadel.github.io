@@ -1,0 +1,143 @@
+<html>
+<head>
+    <script type="text/javascript" src="vis-4.20.1/dist/vis.js"></script>
+    <link href="vis-4.20.1/dist/vis.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        #mynetwork {
+            width: 1000px;
+            height: 900px;
+            border: 1px solid lightgray;
+        }
+    </style>
+</head>
+<body>
+<div id="mynetwork"></div>
+
+<script type="text/javascript">
+    // create an array with nodes
+    var nodes = new vis.DataSet([
+        {id:1,label:'Tata'},
+{id:2,label:'CarnegieIndia'},
+{id:3,label:'CarnegieEndowment'},
+{id:4,label:'BrookingsInstitute,DC'},
+{id:5,label:'LockheedMartin'},
+{id:6,label:'HTMedia'},
+{id:7,label:'IndiaExpress'},
+{id:8,label:'NDTV'},
+{id:9,label:'PMO'},
+{id:10,label:'Shell'},
+{id:11,label:'BrookingsIndia'},
+{id:12,label:'TV18 ThinkIndiaFoundation'},
+{id:13,label:'NitiAayog'},
+{id:14,label:'ReserveBankofIndia'},
+{id:15,label:'IndianNationalCongress'},
+{id:16,label:'BillandMelindaGatesFoundation'},
+{id:17,label:'PrimeMinister'},
+{id:18,label:'AllianceforFinancialInclusion'},
+{id:19,label:'BetterthanCashAlliance'},
+{id:20,label:'CashlessCatalyst'},
+{id:21,label:'VISA'},
+{id:22,label:'Citi'},
+{id:23,label:'USAID'},
+{id:24,label:'Mastercard'},
+{id:25,label:'AdityaBirla'},
+{id:26,label:'AdiGodrej'},
+{id:27,label:'FortisHealthcare'},
+{id:28,label:'KiranMazumdarShaw'},
+{id:29,label:'RahulBajaj'},
+{id:30,label:'NitaandMukeshAmbani'},
+{id:31,label:'SudhaandKrisGopalakrishnan'},
+{id:32,label:'TataGroup'},
+{id:33,label:'ObserverResearchFoundation'},
+{id:34,label:'GatewayHouse'},
+{id:35,label:'MinistryofExternalAffairs'},
+{id:36,label:'CouncilonForeignRelations'},
+{id:37,label:'CentreforAmericanProgress'},
+{id:38,label:'CarnegieEndowment'},
+{id:39,label:'AtlanticCouncil'},
+{id:40,label:'HudsonInstitute'},
+{id:41,label:'USStateDepartment'},
+{id:42,label:'VivekanandaInternationalFoundation'},
+{id:43,label:'MinistryofCoal'},
+{id:44,label:'MinistryofPower'},
+{id:45,label:'MinistryofNewandRenewableEnergy'},
+{id:46,label:'TataSteel'},
+{id:47,label:'AspenInstitute'},
+{id:48,label:'Govt.ofIndia'},
+{id:49,label:'CKBirla'},
+{id:50,label:'BhartiEnterprises'},
+{id:51,label:'GMRao'},
+    ]);
+
+    // create an array with edges
+    var edges = new vis.DataSet([
+        {from:3, to:17},
+{from:32, to:2},
+{from:32, to:5},
+{from:5, to:3},
+{from:11, to:17},
+{from:3, to:17},
+{from:6, to:2},
+{from:12, to:3},
+{from:4, to:13},
+{from:4, to:14},
+{from:9, to:4},
+{from:35, to:11},
+{from:10, to:11},
+{from:16, to:4},
+{from:24, to:4},
+{from:22, to:4},
+{from:23, to:4},
+{from:25, to:11},
+{from:26, to:11},
+{from:27, to:11},
+{from:28, to:11},
+{from:29, to:11},
+{from:30, to:11},
+{from:31, to:11},
+{from:32, to:11},
+{from:33, to:35},
+{from:34, to:35},
+{from:17, to:36},
+{from:17, to:37},
+{from:17, to:3},
+{from:17, to:39},
+{from:17, to:40},
+{from:17, to:4},
+{from:4, to:17},
+{from:42, to:9},
+{from:42, to:9},
+{from:11, to:14},
+{from:21, to:4},
+{from:46, to:11},
+{from:11, to:43},
+{from:11, to:44},
+{from:11, to:45},
+{from:32, to:3},
+{from:47, to:48},
+{from:28, to:2},
+{from:50, to:2},
+{from:51, to:2},
+{from:3, to:15},
+{from:32, to:17},
+{from:50, to:17},
+{from:32, to:3},
+{from:3, to:41},
+    ]);
+
+    // create a network
+    var container = document.getElementById('mynetwork');
+
+    // provide the data in the vis format
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var options = {};
+
+    // initialize your network!
+    var network = new vis.Network(container, data, options);
+</script>
+</body>
+</html>
