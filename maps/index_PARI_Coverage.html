@@ -10,8 +10,8 @@
 	
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
 
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
 
 
 	<style>
@@ -47,7 +47,8 @@ Winning Party: <input id="margParty" type="text" value="Bharatiya Janata Party">
 <br/>
   <input type="submit" onclick="myFunction();">
 <br/>Number of constituencies where winner won by less than the entered margin:
-<div id="margConst"></div><br /-->
+-->
+<div id="margConst"></div><br/>
 <script>
 function myFunction() {
 	marginalConst = 0
@@ -91,15 +92,22 @@ function myFunction() {
 	info.addTo(map);
 
 	var marginalConst = 0;
+	var names  = '';
 	// get color depending on population density value
 	function getColor(d) {
 		if(d.articles>0.0 && d.faces>0.0){
-			return '#000080';
+			marginalConst++;
+		//	names = names+d.DISTRICT+'<br>';
+			return '#008000';
 		}
 		else if(d.articles>0.0){
-			return '#FF0000';
+			marginalConst++;
+		//	names = names+d.DISTRICT+'<br>';
+			return '#008000';
 		}
 		else if(d.faces>0.0){
+			marginalConst++;
+		//	names = names+d.DISTRICT+'<br>';
 			return '#008000';
 		} 
 		return '#a6a6a6';
@@ -109,9 +117,9 @@ function myFunction() {
 
 	function style(feature) {
 		return {
-			weight: 2,
+			weight: 0,
 			opacity: 1,
-			color: 'white',
+			color: 'black',
 			dashArray: '3',
 			fillOpacity: 0.7,
 			fillColor: getColor(feature.properties)
@@ -186,6 +194,7 @@ function myFunction() {
 
 	legend.addTo(map);*/
 	document.getElementById("margConst").innerHTML=marginalConst;
+	document.getElementById("margConst").innerHTML=names;
 </script>
 
 </body>
