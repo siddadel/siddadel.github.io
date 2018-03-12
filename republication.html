@@ -23,9 +23,12 @@ body{
     margin-left: 88px;
   }
   h2{
-    font-size: 16px;
+    font-size: 13px;
     margin: 30px 0px 2px 0px;
-    font-weight: 400;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #717171;
+    text-transform: uppercase;
   }
   h3{
     font-size: 12px;
@@ -122,7 +125,7 @@ $('#datepicker').datepicker({
 });
 
 $('#getcode').click(function() {
-   var code =  "<div style='background:#F6F6F6;padding:20px;border-left:6px solid #F73B08;margin:30px 0px;'><img src='https://ruralindiaonline.org/static/img/logo.png' style='margin-right:24px;float:left;width:72px;'/><p style='font-family: FiraSans-Regular;font-size: 16px;color: #5A5A5A;letter-spacing:0.1px;margin:5px 0px 6px 0px;'>This <a href='"+link.value+"'>"+"article"+"</a> was originally published in the <a href='https://ruralindiaonline.org/'>People's Archive of Rural India</a> on "+datepicker.value+"</p></div>"; 
+   var code =  "<div style='background:#F6F6F6;padding:20px;border-left:6px solid #F73B08;margin:30px 0px;'><img src='https://ruralindiaonline.org/static/img/logo.png' style='margin-right:24px;float:left;width:72px;'/><p style='font-family: FiraSans-Regular;font-size: 16px;color: #5A5A5A;letter-spacing:0.1px;margin:5px 0px 6px 0px;'>This <a style='color:#FF3D08' href='"+link.value+"'>"+"article"+"</a> was originally published in the <a style='color:#FF3D08' href='https://ruralindiaonline.org/'>People's Archive of Rural India</a> on "+datepicker.value+"</p></div>";
 
    $('#output').html(code);
    $('#code').text(code);
@@ -163,7 +166,7 @@ $("#link").change(function() {
 </ol>
 </p>
 <div class="form-box">
-  <h2>Paste link to the article on PARI here</h2>
+  <h2>Paste the URL to the PARI article here</h2>
   <input type="url" id="link" class='link-box' id='linkBox'>
   <h2>Date of publication on PARI</h2>
   <input class='date-selecter' id='datepicker' type = 'text'>
