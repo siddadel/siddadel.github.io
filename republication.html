@@ -27,7 +27,7 @@ body{
     margin: 30px 0px 2px 0px;
     font-weight: 700;
     letter-spacing: 1.2px;
-    color: #717171;
+    color: #3e3e3e;
     text-transform: uppercase;
   }
   h3{
@@ -79,7 +79,7 @@ body{
   }
   #final-output{
     margin-top: 40px;
-    border-top: 3px solid #e8e8e8;
+    border-top: 2px solid #4e4e4e;
     padding-top: 30px;
   }
   table, td, th {
@@ -100,7 +100,7 @@ body{
     color: #636363;
   }
   .form-box{
-    border-top: 3px solid #e8e8e8;
+    border-top: 2px solid #4e4e4e;
     margin-top: 20px;
   }
 </style>
@@ -132,7 +132,7 @@ $('#getcode').click(function() {
     // Getting the height of the document
     var n = $(document).height();
     $('html, body').animate({ scrollTop: n }, 500);
-  
+
 
    $('#output').html(code);
    $('#code').text(code);
@@ -180,10 +180,10 @@ $("#link").change(function() {
 </div>
 <input class='submit-button' id="getcode" value="Generate attribution code">
 <div id='final-output'>
-  <div id="embedcode">Embed Code<span class='already-copied' id='alreadyCopied'>Copied to clipboard</span><br/>
+  <div id="embedcode"><h2 style='margin-bottom:-25px;margin-top:0px;'>Embed Code</h2><span class='already-copied' id='alreadyCopied'>Copied to clipboard</span><br/>
     <h3>This code has been copied into your clipboard. Please paste the code as-is as HTML in your CMS, before the article starts as per the PARI republication guidelines.</h3>
   <textarea spellcheck="false" id="code"></textarea></div>
-  <h2 style='margin-bottom:-30px;'>Here is a preview of how the above code will render on your page:</h2>
+  <h2 style='margin-bottom:-30px;'>Preview of how the above code will render on your page:</h2>
   <div id="output"></div>
 </div>
 </form>
