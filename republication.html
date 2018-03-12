@@ -127,6 +127,13 @@ $('#datepicker').datepicker({
 $('#getcode').click(function() {
    var code =  "<div style='background:#F6F6F6;padding:20px;border-left:6px solid #F73B08;margin:30px 0px;'><img src='https://ruralindiaonline.org/static/img/logo.png' style='margin-right:24px;float:left;width:72px;'/><p style='font-family: FiraSans-Regular;font-size: 16px;color: #5A5A5A;letter-spacing:0.1px;margin:5px 0px 6px 0px;'>This <a style='color:#FF3D08' href='"+link.value+"'>"+"article"+"</a> was originally published in the <a style='color:#FF3D08' href='https://ruralindiaonline.org/'>People's Archive of Rural India</a> on "+datepicker.value+"</p></div>";
 
+      // Preventing default action of the event
+    event.preventDefault();
+    // Getting the height of the document
+    var n = $(document).height();
+    $('html, body').animate({ scrollTop: n }, 500);
+  
+
    $('#output').html(code);
    $('#code').text(code);
   // $('#embedcode').show();
@@ -159,7 +166,7 @@ $("#link").change(function() {
   <img src='https://ruralindiaonline.org/static/img/logo.png' style='width:72px;margin:10px 0px 10px 0px;float: left;'/><h1>article embed code generator</h1>
 <p><b>Reproduction of article/videos and other PARI material</b><br/>We have changed the attribution line we require of those wishing to reproduce PARI stories and reports on their own sites. Henceforth, the attribution line you see below has to appear <u>above</u> the story’s main text and <u>below</u> the author’s byline. The new attribution appears as shown below:
 <img src='example.png' style='width:100%;'/>
-  <br/><br/>To generate the embed code:
+  <br/><br/> To have such an attribution line you will need to add a special embed code to your page. To generate the embed code:
 <ol>
   <li>Enter the link to the article</li>
   <li>Enter the date of publication of the article</li>
