@@ -69,7 +69,12 @@ body{
 
 <!-- The function will be called after the Google Script has executed -->
 <script>
+
 $(function(){
+$('#embedcode').hide();
+$('#divnext').hide();
+$('#preview').hide();
+
 $('#datepicker').datepicker({
     dateFormat: "dd-mm-yy"
 });
@@ -77,14 +82,22 @@ $('#datepicker').datepicker({
 $('#getcode').click(function() {  
    var code =  "<div style='background:#F6F6F6;padding:20px;border-left:6px solid #F73B08;margin:30px 0px;'><img src='https://ruralindiaonline.org/static/img/logo.png' style='margin-right:24px;float:left;width:72px;'/><p style='font-family: FiraSans-Regular;font-size: 16px;color: #5A5A5A;letter-spacing:0.1px;margin:10px 0px 6px 0px;'>This <a href='"+link+"'>"+"article"+"</a> was originally published in the <a href='https://ruralindiaonline.org/'>People's Archive of Rural India</a> on "+datepicker+"</p></div>";
 
+
    $('#output').html(code);
    $('#code').text(code);
+  $('#embedcode').show();
+  $('#preview').show();
 
 
     $("#code").select();
     document.execCommand('copy');
 
   });
+
+$('#link').change(function(){
+  $('#divnext').show();
+});
+
 });
 </script>
 
@@ -95,15 +108,21 @@ $('#getcode').click(function() {
   <h1>PARI article embed code generator</h1>
   <h2>Paste link to the article on PARI here</h2>
   <input type="text" id="link" class='link-box' id='linkBox'>
+  <div id="divnext">
   <h2>Date of publication on PARI</h2>
   <input class='date-selecter' id='datepicker' type = 'text'>
-</div>
-<br><textarea id="code"></textarea>
 <input class='submit-button' id="getcode" value="Generate attribution code">
-
+<div id="embedcode">
+ Embed Code
+ This code has been copied into your clipboard. Please paste the code as-is as HTML in your CMS, before the article starts as per the PARI republication guidelines.
+<br><textarea id="code"></textarea>
+</div>
+</div>
 </form>
 
 <!-- Here the results of the form submission will be displayed -->
+<div id="preview">Preview
 <div id="output"></div>
+</div>
 
 
