@@ -90,6 +90,9 @@ body{
 
 <!-- The function will be called after the Google Script has executed -->
 <script>
+$(function() {
+$("#linkBox").focus();
+});
 $(function(){
 // $('#embedcode').hide();
 $('#final-output').hide();
@@ -110,9 +113,6 @@ $('#getcode').click(function() {
     document.execCommand('copy');
 
   });
-});
-$(function() {
-$("#link-box").focus();
 });
 </script>
 
