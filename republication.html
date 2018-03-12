@@ -5,21 +5,29 @@ body{
   font-family: 'Fira Sans', sans-serif;
   background-image: url(https://ruralindiaonline.org/media/uploads/Visible_Work_Invisible_Women/Panel6/edited_m020_26.jpg);
 }
- form { margin: 40px auto;width: 510px;border: 1px solid #cacaca;border-radius: 5px;background:white;padding:40px;}
+ form { margin: 40px auto;width: 600px;border: 1px solid #cacaca;border-radius: 5px;background:white;padding:10px 40px;}
  input { display:block; margin: 0px;font-family: 'Fira Sans', sans-serif;}
   .link-box{
     width: 100%;
-    font-size: 21px;
+    font-size: 16px;
     height: 46px;
     padding: 8px;
   }
   h1{
     line-height: 30px;
+    font-size: 20px;
+    color: #ff3b00;
+    padding: 17px 0px 0px 0px;
+    margin-left: 88px;
   }
   h2{
     font-size: 16px;
-    letter-spacing: 0.3px;
     margin: 30px 0px 2px 0px;
+    font-weight: 400;
+  }
+  h3{
+    font-size: 12px;
+    color: #999;
     font-weight: 400;
   }
   table {
@@ -31,31 +39,44 @@ body{
   .submit-button{
     background-color: #FF3D08;
     color: white;
-    margin-top: 30px;
+    margin: 30px 0px;
     padding: 14px 14px;
     font-size: 16px;
     border: none;
     border-radius: 4px;
     font-family: 'Fira Sans', sans-serif;
     cursor: pointer;
+    width: 220px;
   }
   .date-selecter{
     height: 46px;
-    width: 100%;
     font-size: 18px;
+    background-color: white;
     padding-left: 10px;
+    border-color: #ccc;
   }
   #output{
     max-width: 800px;
     background: white;
-    padding: 40px;
     margin: auto;
   }
     textarea{
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 12px;
+    line-height: 16px;
+    width: 100%;
+    height: 160px;
+    padding: 4px 6px;
+    background: #f5f5f5;
+    color: #5f5f5f;
+    border-radius: 4px;
+    font-family: monospace;
+    border-color: #c3c3c3;
   }
-
+  #final-output{
+    margin-top: 40px;
+    border-top: 2px solid #e8e8e8;
+    padding-top: 30px;
+  }
   table, td, th {
     /* border: 1px solid green; */
   }
@@ -69,60 +90,50 @@ body{
 
 <!-- The function will be called after the Google Script has executed -->
 <script>
-
 $(function(){
-$('#embedcode').hide();
-$('#divnext').hide();
-$('#preview').hide();
-
+// $('#embedcode').hide();
+$('#final-output').hide();
 $('#datepicker').datepicker({
     dateFormat: "dd-mm-yy"
 });
 
-$('#getcode').click(function() {  
-   var code =  "<div style='background:#F6F6F6;padding:20px;border-left:6px solid #F73B08;margin:30px 0px;'><img src='https://ruralindiaonline.org/static/img/logo.png' style='margin-right:24px;float:left;width:72px;'/><p style='font-family: FiraSans-Regular;font-size: 16px;color: #5A5A5A;letter-spacing:0.1px;margin:10px 0px 6px 0px;'>This <a href='"+link.value+"'>"+"article"+"</a> was originally published in the <a href='https://ruralindiaonline.org/'>People's Archive of Rural India</a> on "+datepicker.value+"</p></div>";
-
+$('#getcode').click(function() {
+   var code =  "<div style='background:#F6F6F6;padding:20px;border-left:6px solid #F73B08;margin:30px 0px;'><img src='https://ruralindiaonline.org/static/img/logo.png' style='margin-right:24px;float:left;width:72px;'/><p style='font-family: FiraSans-Regular;font-size: 16px;color: #5A5A5A;letter-spacing:0.1px;margin:5px 0px 6px 0px;'>This <a href='"+link+"'>"+"article"+"</a> was originally published in the <a href='https://ruralindiaonline.org/'>People's Archive of Rural India</a> on "+datepicker+"</p></div>";
 
    $('#output').html(code);
    $('#code').text(code);
-  $('#embedcode').show();
-  $('#preview').show();
+  // $('#embedcode').show();
+  $('#final-output').show();
 
 
     $("#code").select();
     document.execCommand('copy');
 
   });
-
-$('#link').keyup(function(){
-  $('#divnext').show();
 });
-
+$(function() {
+$("#link-box").focus();
 });
 </script>
 
 <!-- This is the actual HTML form -->
 <form id="myForm">
 <div class="form-box">
-  <img src='https://ruralindiaonline.org/static/img/logo.png' style='width:72px;margin:10px 0px 10px 0px;'/>
-  <h1>PARI article embed code generator</h1>
+  <img src='https://ruralindiaonline.org/static/img/logo.png' style='width:72px;margin:10px 0px 10px 0px;float: left;'/>
+  <h1>article embed code generator</h1>
   <h2>Paste link to the article on PARI here</h2>
   <input type="text" id="link" class='link-box' id='linkBox'>
-  <div id="divnext">
   <h2>Date of publication on PARI</h2>
   <input class='date-selecter' id='datepicker' type = 'text'>
-<input class='submit-button' id="getcode" value="Generate attribution code">
-<div id="embedcode">
- Embed Code
- This code has been copied into your clipboard. Please paste the code as-is as HTML in your CMS, before the article starts as per the PARI republication guidelines.
-<br><textarea id="code"></textarea>
 </div>
+<input class='submit-button' id="getcode" value="Generate attribution code">
+<div id='final-output'>
+  <div id="embedcode">Embed Code<br/>
+    <h3>This code has been copied into your clipboard. Please paste the code as-is as HTML in your CMS, before the article starts as per the PARI republication guidelines.</h3>
+  <textarea spellcheck="false" id="code"></textarea></div>
+  <h2 style='margin-bottom:-30px;'>Final output</h2>
+  <div id="output"></div>
 </div>
 </form>
 
 <!-- Here the results of the form submission will be displayed -->
-<div id="preview">Preview
-<div id="output"></div>
-</div>
-
-
