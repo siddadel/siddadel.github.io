@@ -1,0 +1,109 @@
+
+<!-- You can also include your own CSS styles -->
+<style>
+body{
+  font-family: 'Fira Sans', sans-serif;
+  background-image: url(https://ruralindiaonline.org/media/uploads/Visible_Work_Invisible_Women/Panel6/edited_m020_26.jpg);
+}
+ form { margin: 40px auto;width: 510px;border: 1px solid #cacaca;border-radius: 5px;background:white;padding:40px;}
+ input { display:block; margin: 0px;font-family: 'Fira Sans', sans-serif;}
+  .link-box{
+    width: 100%;
+    font-size: 21px;
+    height: 46px;
+    padding: 8px;
+  }
+  h1{
+    line-height: 30px;
+  }
+  h2{
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    margin: 30px 0px 2px 0px;
+    font-weight: 400;
+  }
+  table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
+  }
+  .submit-button{
+    background-color: #FF3D08;
+    color: white;
+    margin-top: 30px;
+    padding: 14px 14px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Fira Sans', sans-serif;
+    cursor: pointer;
+  }
+  .date-selecter{
+    height: 46px;
+    width: 100%;
+    font-size: 18px;
+    padding-left: 10px;
+  }
+  #output{
+    max-width: 800px;
+    background: white;
+    padding: 40px;
+    margin: auto;
+  }
+    textarea{
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  table, td, th {
+    /* border: 1px solid green; */
+  }
+</style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!--link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css"-->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- The function will be called after the Google Script has executed -->
+<script>
+$(function(){
+$('#datepicker').datepicker({
+    dateFormat: "dd-mm-yy"
+});
+
+$('#getcode').click(function() {  
+   var code =  "<div style='background:#F6F6F6;padding:20px;border-left:6px solid #F73B08;margin:30px 0px;'><img src='https://ruralindiaonline.org/static/img/logo.png' style='margin-right:24px;float:left;width:72px;'/><p style='font-family: FiraSans-Regular;font-size: 16px;color: #5A5A5A;letter-spacing:0.1px;margin:10px 0px 6px 0px;'>This <a href='"+link+"'>"+"article"+"</a> was originally published in the <a href='https://ruralindiaonline.org/'>People's Archive of Rural India</a> on "+datepicker+"</p></div>";
+
+   $('#output').html(code);
+   $('#code').text(code);
+
+
+    $("#code").select();
+    document.execCommand('copy');
+
+  });
+});
+</script>
+
+<!-- This is the actual HTML form -->
+<form id="myForm">
+<div class="form-box">
+  <img src='https://ruralindiaonline.org/static/img/logo.png' style='width:72px;margin:10px 0px 10px 0px;'/>
+  <h1>PARI article embed code generator</h1>
+  <h2>Paste link to the article on PARI here</h2>
+  <input type="text" id="link" class='link-box' id='linkBox'>
+  <h2>Date of publication on PARI</h2>
+  <input class='date-selecter' id='datepicker' type = 'text'>
+</div>
+<br><textarea id="code" columns='100%'></textarea>
+<input class='submit-button' id="getcode" value="Generate attribution code">
+
+</form>
+
+<!-- Here the results of the form submission will be displayed -->
+<div id="output"></div>
+
+
