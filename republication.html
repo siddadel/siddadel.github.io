@@ -103,9 +103,6 @@ body{
     border-top: 3px solid #e8e8e8;
     margin-top: 20px;
   }
-  .ui-datepicker .ui-widget-content {
-    background: #787 ;
-}
 </style>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -124,9 +121,7 @@ $(function(){
 $('#final-output').hide();
 $('#alreadyCopied').hide();
 $('#datepicker').datepicker({
-    dateFormat: "dd-mm-yy",
-    showButtonPanel: true
-
+    dateFormat: "dd-mm-yy"
 });
 
 $('#getcode').click(function() {
