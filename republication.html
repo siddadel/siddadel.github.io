@@ -117,9 +117,7 @@ body{
 
 <!-- The function will be called after the Google Script has executed -->
 <script>
-$(function() {
-$("#linkBox").focus();
-});
+
 $(function(){
 // $('#embedcode').hide();
 $('#final-output').hide();
@@ -169,7 +167,12 @@ $("#link").change(function() {
 });
 
 });
+
+$(function() {
+$("#link").focus();
+});
 </script>
+
 
 
 
