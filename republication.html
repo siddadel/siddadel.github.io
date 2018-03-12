@@ -19,7 +19,7 @@ body{
     line-height: 30px;
     font-size: 20px;
     color: #ff3b00;
-    padding: 17px 0px 0px 0px;
+    padding: 7px 0px 0px 0px;
     margin-left: 88px;
   }
   h2{
@@ -92,6 +92,10 @@ body{
     letter-spacing: 0.4px;
     border-radius: 3px;
   }
+  p{
+    font-size: 14px;
+    color: #636363;
+  }
 </style>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -132,7 +136,7 @@ $("#link").change(function() {
     if(!link.value.includes("ruralindiaonline.org")){
       alert("This is not a PARI link. Please enter a valid ruralindiaonline.org link");
     }
-  }else{  
+  }else{
     alert("This is not a valid URL. Please enter a valid URL");
   }
 });
@@ -145,21 +149,16 @@ $("#link").change(function() {
 <!-- This is the actual HTML form -->
 <form id="myForm">
 
-  <img src='https://ruralindiaonline.org/static/img/logo.png' style='width:72px;margin:10px 0px 10px 0px;float: left;'/>
-  <b>Reproduction of article/videos and other PARI material</b><br>
-<div>
+  <img src='https://ruralindiaonline.org/static/img/logo.png' style='width:72px;margin:10px 0px 10px 0px;float: left;'/><h1>article embed code generator</h1>
+<p>
+<b>Reproduction of article/videos and other PARI material</b><br/>
 We have changed the attribution line we require of those wishing to reproduce PARI stories and reports on their own sites.
-Henceforth, the attribution line you see below has to appear above the story’s main text and below the author’s byline. 
-</div>
-As in:
-<div style='background:#F6F6F6;padding:20px;border-left:6px solid #F73B08;margin:30px 0px;'><img src='https://ruralindiaonline.org/static/img/logo.png' style='margin-right:24px;float:left;width:72px;'/><p style='font-family: FiraSans-Regular;font-size: 16px;color: #5A5A5A;letter-spacing:0.1px;margin:5px 0px 6px 0px;'>This <a href='https://ruralindiaonline.org/articles/little-barshas-big-journey'>article</a> was originally published in the <a href='https://ruralindiaonline.org/'>People's Archive of Rural India</a> on 12-03-2018</p></div>
-
-<br><br>
-Please note that the text in the box remains constant except for the article to be hyperlinked and its publication date
-<br>
-To have such an attrbution line on your website, you will need to past HTML code in your page. Here is a tool that generates the HTML code for you. All you have to do is enter the hyperlink and the date of publication of the article you wish to reproduce in this tool. The tool generates an HTML code and automatically copies it into your clipboard. Paste this HTML code in your page.
+Henceforth, the attribution line you see below has to appear <u>above</u> the story’s main text and <u>below</u> the author’s byline.
+<br/><br/>
+Please note that the text in the box remains constant except for the article to be hyperlinked and its publication date.
+To generate the embed code, enter the link to the article and, the date of publication of the article you wish to reproduce below.
+</p>
 <div class="form-box">
-  <h1>article embed code generator</h1>
   <h2>Paste link to the article on PARI here</h2>
   <input type="url" id="link" class='link-box' id='linkBox'>
   <h2>Date of publication on PARI</h2>
