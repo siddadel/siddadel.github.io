@@ -4,6 +4,8 @@
 body{
   font-family: 'Fira Sans', sans-serif;
   background-image: url(https://ruralindiaonline.org/media/uploads/Visible_Work_Invisible_Women/Panel6/edited_m020_26.jpg);
+  background-attachment: fixed;
+  background-position: top;
 }
  form { margin: 40px auto;width: 600px;border: 1px solid #cacaca;border-radius: 5px;background:white;padding:10px 40px;}
  input { display:block; margin: 0px;font-family: 'Fira Sans', sans-serif;}
@@ -80,6 +82,16 @@ body{
   table, td, th {
     /* border: 1px solid green; */
   }
+  .already-copied{
+    float: right;
+    background: #777777;
+    font-size: 12px;
+    color: white;
+    padding: 1px 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-radius: 3px;
+  }
 </style>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -90,9 +102,13 @@ body{
 
 <!-- The function will be called after the Google Script has executed -->
 <script>
+$(function() {
+$("#linkBox").focus();
+});
 $(function(){
 // $('#embedcode').hide();
 $('#final-output').hide();
+$('#alreadyCopied').hide();
 $('#datepicker').datepicker({
     dateFormat: "dd-mm-yy"
 });
@@ -103,9 +119,9 @@ $('#getcode').click(function() {
    $('#output').html(code);
    $('#code').text(code);
   // $('#embedcode').show();
-  $('#final-output').show();
-
-
+  $('#final-output').fadeIn(500).delay(1000);
+  $('#alreadyCopied').show();
+  $('#alreadyCopied').effect("shake", {distance:5}, {times:2});
     $("#code").select();
     document.execCommand('copy');
 
@@ -121,9 +137,6 @@ $("#link").change(function() {
   }
 });
 
-});
-$(function() {
-$("#link-box").focus();
 });
 </script>
 
@@ -154,7 +167,7 @@ To have such an attrbution line on your website, you will need to past HTML code
 </div>
 <input class='submit-button' id="getcode" value="Generate attribution code">
 <div id='final-output'>
-  <div id="embedcode">Embed Code<br/>
+  <div id="embedcode">Embed Code<span class='already-copied' id='alreadyCopied'>Copied to clipboard</span><br/>
     <h3>This code has been copied into your clipboard. Please paste the code as-is as HTML in your CMS, before the article starts as per the PARI republication guidelines.</h3>
   <textarea spellcheck="false" id="code"></textarea></div>
   <h2 style='margin-bottom:-30px;'>Here is a preview of how the above code will render on your page:</h2>
