@@ -7,7 +7,7 @@ body{
   background-attachment: fixed;
   background-position: top;
 }
- form { margin: 40px auto;width: 600px;border: 1px solid #cacaca;border-radius: 5px;background:white;padding:10px 40px;}
+ form { margin: 40px auto;width: 600px;border: 1px solid #cacaca;border-radius: 5px;background:white;padding:30px 40px 10px 40px;}
  input { display:block; margin: 0px;font-family: 'Fira Sans', sans-serif;}
   .link-box{
     width: 100%;
@@ -76,7 +76,7 @@ body{
   }
   #final-output{
     margin-top: 40px;
-    border-top: 2px solid #e8e8e8;
+    border-top: 3px solid #e8e8e8;
     padding-top: 30px;
   }
   table, td, th {
@@ -92,9 +92,13 @@ body{
     letter-spacing: 0.4px;
     border-radius: 3px;
   }
-  p{
+  p, ol, li{
     font-size: 14px;
     color: #636363;
+  }
+  .form-box{
+    border-top: 3px solid #e8e8e8;
+    margin-top: 20px;
   }
 </style>
 
@@ -150,13 +154,13 @@ $("#link").change(function() {
 <form id="myForm">
 
   <img src='https://ruralindiaonline.org/static/img/logo.png' style='width:72px;margin:10px 0px 10px 0px;float: left;'/><h1>article embed code generator</h1>
-<p>
-<b>Reproduction of article/videos and other PARI material</b><br/>
-We have changed the attribution line we require of those wishing to reproduce PARI stories and reports on their own sites.
-Henceforth, the attribution line you see below has to appear <u>above</u> the story’s main text and <u>below</u> the author’s byline.
-<br/><br/>
-Please note that the text in the box remains constant except for the article to be hyperlinked and its publication date.
-To generate the embed code, enter the link to the article and, the date of publication of the article you wish to reproduce below.
+<p><b>Reproduction of article/videos and other PARI material</b><br/>We have changed the attribution line we require of those wishing to reproduce PARI stories and reports on their own sites. Henceforth, the attribution line you see below has to appear <u>above</u> the story’s main text and <u>below</u> the author’s byline. The new attribution appears as shown below:
+<img src='example.png' style='width:100%;'/>
+  <br/><br/>To generate the embed code:
+<ol>
+  <li>Enter the link to the article</li>
+  <li>Enter the date of publication of the article</li>
+</ol>
 </p>
 <div class="form-box">
   <h2>Paste link to the article on PARI here</h2>
