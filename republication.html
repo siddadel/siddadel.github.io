@@ -1,6 +1,7 @@
 
 <!-- You can also include your own CSS styles -->
 <style>
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,600,700');
 body{
   font-family: 'Fira Sans', sans-serif;
   background-image: url(https://ruralindiaonline.org/media/uploads/Visible_Work_Invisible_Women/Panel6/edited_m020_26.jpg);
@@ -91,7 +92,7 @@ body{
   }
   .already-copied{
     float: right;
-    background: #777777;
+    background: #b7b7b7;
     font-size: 12px;
     color: white;
     padding: 1px 7px;
@@ -102,6 +103,7 @@ body{
   p, ol, li{
     font-size: 14px;
     color: #636363;
+    line-height: 22px;
   }
   .form-box{
     border-top: 2px solid #4e4e4e;
@@ -130,11 +132,12 @@ $('#getcode').click(function() {
    if(link.value==''){
     alert("Please enter a valid PARI URL");
     return;
-   } 
+   }
    if (datepicker.value==''){
     alert("Please enter the date of publication");
     return;
    }
+
 
    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']  
    var d = $('#datepicker').datepicker('getDate');
@@ -144,7 +147,7 @@ $('#getcode').click(function() {
 
    var datePARIForm = (m+" "+l+", "+y);
 
-   var code =  "<div style='background:#F6F6F6;padding:20px;border-left:6px solid #F73B08;margin:30px 0px;'><img src='https://ruralindiaonline.org/static/img/logo.png' style='margin-right:24px;float:left;width:72px;'/><p style='font-family: FiraSans-Regular;font-size: 16px;color: #5A5A5A;letter-spacing:0.1px;margin:5px 0px 6px 0px;'>This <a style='color:#FF3D08' href='"+link.value+"'>"+"article"+"</a> was originally published in the <a style='color:#FF3D08' href='https://ruralindiaonline.org/'>People's Archive of Rural India</a> on "+datePARIForm+"</p></div>";
+   var code =  "<div style='background:#F6F6F6;padding:20px;border-left:6px solid #F73B08;margin:30px 0px;'><img src='https://ruralindiaonline.org/static/img/logo.png' style='margin-right:24px;float:left;width:72px;'/><p style='font-family: FiraSans-Regular;font-size: 16px;color: #5A5A5A;letter-spacing:0.1px;margin:5px 0px 6px 0px;'>This <a style='color:#FF3D08;text-decoration:none;' href='"+link.value+"'>"+"article"+"</a> was originally published in the <a style='text-decoration:none;color:#FF3D08' href='https://ruralindiaonline.org/'>People's Archive of Rural India</a> on "+datePARIForm+"</p></div>";
 
       // Preventing default action of the event
     event.preventDefault();
@@ -204,7 +207,7 @@ $("#link").focus();
 </div>
 <input class='submit-button' id="getcode" value="Generate attribution code">
 <div id='final-output'>
-  <div id="embedcode"><h2 style='margin-bottom:-25px;margin-top:0px;'>Embed Code</h2><span class='already-copied' id='alreadyCopied'>Copied to clipboard</span><br/>
+  <div id="embedcode"><h2 style='margin-bottom:-25px;margin-top:0px;'>Embed Code</h2><span class='already-copied' id='alreadyCopied'>Copied to clipboard!</span><br/>
     <h3>This code has been copied into your clipboard. Please paste the code as-is as HTML in your CMS, before the article starts as per the PARI republication guidelines.</h3>
   <textarea spellcheck="false" id="code"></textarea></div>
   <h2 style='margin-bottom:-30px;'>Preview of how the above code will render on your page:</h2>
