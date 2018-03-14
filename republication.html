@@ -120,9 +120,7 @@ body{
 
 <!-- The function will be called after the Google Script has executed -->
 <script>
-$(function() {
-$("#linkBox").focus();
-});
+
 $(function(){
 // $('#embedcode').hide();
 $('#final-output').hide();
@@ -132,7 +130,16 @@ $('#datepicker').datepicker({
 });
 
 $('#getcode').click(function() {
-   var code =  "<div style='background:#F6F6F6;padding:20px;border-left:6px solid #F73B08;margin:30px 0px;'><img src='https://ruralindiaonline.org/static/img/logo.png' style='margin-right:24px;float:left;width:72px;'/><p style='font-family: FiraSans-Regular;font-size: 16px;color: #5A5A5A;letter-spacing:0.1px;margin:5px 0px 6px 0px;'>This <a style='color:#FF3D08;text-decoration:none;' href='"+link.value+"'>"+"article"+"</a> was originally published in the <a style='color:#FF3D08;text-decoration:none;' href='https://ruralindiaonline.org/'>People's Archive of Rural India</a> on "+datepicker.value+"</p></div>";
+   if(link.value==''){
+    alert("Please enter a valid PARI URL");
+    return;
+   }
+   if (datepicker.value==''){
+    alert("Please enter the date of publication");
+    return;
+   }
+
+   var code =  "<div style='background:#F6F6F6;padding:20px;border-left:6px solid #F73B08;margin:30px 0px;'><img src='https://ruralindiaonline.org/static/img/logo.png' style='margin-right:24px;float:left;width:72px;'/><p style='font-family: FiraSans-Regular;font-size: 16px;color: #5A5A5A;letter-spacing:0.1px;margin:5px 0px 6px 0px;'>This <a style='color:#FF3D08;text-decoration:none;' href='"+link.value+"'>"+"article"+"</a> was originally published in the <a style='text-decoration:none;color:#FF3D08' href='https://ruralindiaonline.org/'>People's Archive of Rural India</a> on "+datepicker.value+"</p></div>";
 
       // Preventing default action of the event
     event.preventDefault();
@@ -163,7 +170,12 @@ $("#link").change(function() {
 });
 
 });
+
+$(function() {
+$("#link").focus();
+});
 </script>
+
 
 
 
