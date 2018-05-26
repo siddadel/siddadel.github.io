@@ -1,0 +1,24 @@
+<html>
+
+You used your api_key and logged in to kite.trade. In response, kite.trade made a GET query to the Redirect URL:<br/>"https://siddadel.github.io/foretello.html?request_token=XXXXX&amp;action=YYYY&amp;status=ZZZZZ<br />
+	<b>Request Token:</b><br/>
+	<div id='request_token'>
+	</div>
+	<b>Action:</b><br/>
+	<div id='action'>
+	</div>
+	<b>Status:</b><br/>
+	<div id='status'>
+	</div>
+	<script>
+	let params = (new URL(document.location)).searchParams;
+	let request_token = params.get("request_token");
+	let action = params.get("action");
+	let status = params.get("status");
+
+	document.getElementById("request_token").innerHTML=request_token;
+	document.getElementById("action").innerHTML=action;
+	document.getElementById("status").innerHTML=status;
+
+	</script>
+</html>
