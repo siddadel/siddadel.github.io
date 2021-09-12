@@ -1,33 +1,39 @@
 {
 	"publications": [{
-		"Title": "Automatically Generating Cause-and_Effect Questions from Passages",
-		"Authors": "Stasaski, K., Rathod, M., Tu, T., Xiao, Y, and Hearst, M.A.",
-		"Venue": "BEA Workshop",
-		"Year": "2021"
-	},
-	{
-		"Title": "Automatic Feedback Generation for Dialog-Based Language Tutors Using Transformer Models and Active Learning",
-		"Authors": "Stasaski, K. and Ramanarayanan, V.",
-		"Venue": "Human-in-the-Loop Dialogue Systems Workshop",
+		"Title": "Dialectics of Flexibility: Scholarly Musings on Call Centre Work",
+		"Authors": "Siddharth Adelkar",
+		"Venue": "Economic & Political Weekly",
 		"Year": "2020"
 	},
 	{
-		"Title": "More Diverse Dialogue Datasets via Diversity-Informed Data Collection",
-		"Authors": "Stasaski, K., Yang, G., and Hearst, M.A.",
-		"Venue": "ACL",
-		"Year": "2020"
+		"Title": "Dahanu to Delhi, struggling for space and more",
+		"Authors": "Himanshu Chutia Saikia and Siddharth Adelkar",
+		"Venue": "People's Archive of Rural India",
+		"Year": "2018"
 	},
 	{
-		"Title": " Construction of a Large Open Access Dialogue Dataset for Tutoring",
-		"Authors": "Stasaski, K., Kao, K., and Hearst, M.A.",
-		"Venue": "BEA Workshop",
-		"Year": "2020"
+		"Title": "‘It is for my children's future that I march’",
+		"Authors": "Siddharth Adelkar",
+		"Venue": "People's Archive of Rural India",
+		"Year": "2018"
 	},
 	{
-		"Title": "Multiple Choice Question Generation Utilizing an Ontology",
-		"Authors": "Stasaski, K and Hearst, M.A.",
-		"Venue": "BEA Workshop",
-		"Year": "2017"
+		"Title": "Driving autos and causes in Dombivli",
+		"Authors": "Siddharth Adelkar",
+		"Venue": "People's Archive of Rural India",
+		"Year": "2018"
+	},
+	{
+		"Title": "The unending struggle of Kamli Bahota",
+		"Authors": "Siddharth Adelkar",
+		"Venue": "People's Archive of Rural India",
+		"Year": "2018"
+	},
+	{
+		"Title": "‘Forest officials cut and take away our crop’",
+		"Authors": "Siddharth Adelkar",
+		"Venue": "People's Archive of Rural India",
+		"Year": "2018"
 	}]
 	
 }
